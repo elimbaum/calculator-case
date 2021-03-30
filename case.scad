@@ -11,12 +11,13 @@ module mounting_holes() {
     // two mounting holes @ bottom
     translate([0, HOLE_POS.y + HOLE_RAD, -CASE_THICKNESS-TOL]) {
         hole_x_offset = HOLE_POS.x + HOLE_RAD;
-        translate([hole_x_offset, 0, 0]) {
-            cylinder(r=HOLE_RAD, h=2*TOL + PCB_DIM.z + CASE_THICKNESS);
+        hole_height = 2*TOL + PCB_DIM.z + CASE_THICKNESS + SOLDER_LEAD_DIM.z;
+        translate([hole_x_offset, 0, -SOLDER_LEAD_DIM.z]) {
+            cylinder(r=HOLE_RAD, h=hole_height);
         }
         
-        translate([PCB_DIM.x - hole_x_offset, 0, 0]) {
-            cylinder(r=HOLE_RAD, h=2*TOL + PCB_DIM.z + CASE_THICKNESS);
+        translate([PCB_DIM.x - hole_x_offset, 0, -SOLDER_LEAD_DIM.z]) {
+            cylinder(r=HOLE_RAD, h=hole_height);
         }
     }  
 }
@@ -51,10 +52,19 @@ module calculator() {
         cylinder(r=BATT_RAD, h=BATT_HEIGHT);
     }
     
+    // solder leads
+    color("gray")
+    translate([
+                (PCB_DIM.x - SOLDER_LEAD_DIM.x)/2,
+                PCB_DIM.y - SOLDER_LEAD_DIM.y - SCREEN_OFFSET,
+                -SOLDER_LEAD_DIM.z]) {
+        cube(SOLDER_LEAD_DIM);
+    }
+    
 }
 
 module case() {
-    color("yellow", 0.4) {
+    color("yellow", 0.3) {
 //        cube([CASE_WIDTH, CASE_BASE_LENGTH, CASE_BASE_HEIGHT]);
 //        translate([0, CASE_BASE_LENGTH, 0])
 //            cube([CASE_WIDTH, CASE_TOP_LENGTH, CASE_TOP_HEIGHT]);
@@ -115,11 +125,13 @@ module cutout() {
 
 scale(25.4) {
 
-translate([0, CASE_THICKNESS, CASE_THICKNESS]) {
+translate([0, CASE_THICKNESS, CASE_THICKNESS + SOLDER_LEAD_DIM.z]) {
     if ($preview) calculator();
 
     difference() {
-        translate([-CASE_THICKNESS, -CASE_THICKNESS, -CASE_THICKNESS])
+        translate([-CASE_THICKNESS,
+                   -CASE_THICKNESS,
+                   -CASE_THICKNESS - SOLDER_LEAD_DIM.z])
             case();
            
         cutout();
