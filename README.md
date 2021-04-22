@@ -20,7 +20,7 @@ openscad design of case for sinclair scientific emulator ([tindie][1], [hackaday
 I always forget these and get stuck. Copying them here to prevent that.
 
 - C+5 = button test ('C'+'C' to end test)
-- C+6 = secret message edit (+ key to advance) *eli note: to cancel, press + key a bunch)
+- C+6 = secret message edit (+ key to advance) *(eli note: to cancel, press + key a bunch)*
 - C+7 = toggle datamath / sinclair roms
 - C+8 = toggle slow / fast cpu
 - C+9 = show secret message
