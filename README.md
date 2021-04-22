@@ -1,5 +1,9 @@
 # calculator-case
-openscad design of case for sinclair scientific emulator
+openscad design of case for sinclair scientific emulator ([tindie][1], [hackaday][2], [github][3])
+
+[1]: https://www.tindie.com/products/simpleavr/ti-msp430-emulating-calculator-kit/#product-description
+[2]: https://hackaday.io/project/167780-ti-msp430-emulating-calculator
+[3]: https://github.com/simpleavr/tms0800
 
 ## Files
 - **case.scad** the main design
@@ -11,6 +15,16 @@ openscad design of case for sinclair scientific emulator
   - v3: adjustments after first print
 
 ## Notes
+
+### Special keycodes
+I always forget these and get stuck. Copying them here to prevent that.
+
+- C+5 = button test ('C'+'C' to end test)
+- C+6 = secret message edit (+ key to advance) *eli note: to cancel, press + key a bunch)
+- C+7 = toggle datamath / sinclair roms
+- C+8 = toggle slow / fast cpu
+- C+9 = show secret message
+- C+C = turn off (put to sleep)
 
 ### Initial prototype (v1/2)
 
