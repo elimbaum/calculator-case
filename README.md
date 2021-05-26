@@ -1,6 +1,8 @@
 # calculator-case
 openscad design of case for sinclair scientific emulator ([tindie][1], [hackaday][2], [github][3])
 
+![version 3 image](IMG_7142.jpeg "version 3 image")
+
 [1]: https://www.tindie.com/products/simpleavr/ti-msp430-emulating-calculator-kit/#product-description
 [2]: https://hackaday.io/project/167780-ti-msp430-emulating-calculator
 [3]: https://github.com/simpleavr/tms0800
